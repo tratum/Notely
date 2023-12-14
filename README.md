@@ -14,7 +14,7 @@ Notely is a cross-platform mobile application built using the Flutter framework 
 ## Screenshots
 
 ![Screenshot 1](ScreenShots/notes-screesnshot.jpg)
-*Caption for Screenshot 1*
+*View Notes*
 
 ![Screenshot 2](/screenshots/screenshot2.png)
 *Caption for Screenshot 2*
