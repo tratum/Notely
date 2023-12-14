@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "865982051920",
+    "project_id": "to-do-app-5fdeb",
+    "storage_bucket": "to-do-app-5fdeb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865982051920:android:98f6cdc00ccc5a06fd0355",
+        "android_client_info": {
+          "package_name": "com.tratum.notely"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "865982051920-tv8f7o3gg0i24so4v56eu2r7lh3senfn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRBgRWFezxr_UbnE_ylpv7ClS-sbxsKbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "865982051920-tv8f7o3gg0i24so4v56eu2r7lh3senfn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
