@@ -6,7 +6,7 @@ Notely is a cross-platform mobile application built using the Flutter framework 
 
 ## Features
 
-- **User Authentication:** Anonymous Sign-In Implemented, No Sign Up Required !!.
+- **User Authentication:** Anonymous Sign-In Implemented, ***No Sign Up Required !!.***
 - **Notes:** Create, edit, and delete notes effortlessly.
 - **To-Do Lists:** Manage your tasks with a user-friendly to-do list feature.
 - **Real-time Sync:** Sync your data across devices in real-time with Firebase.
