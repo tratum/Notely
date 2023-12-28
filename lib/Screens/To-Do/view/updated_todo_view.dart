@@ -135,7 +135,7 @@ class _UpdatedTodoViewState extends State<UpdatedTodoView> {
                     TextFormField(
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       controller: todoTitleController,
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.multiline,
                       cursorColor: theme.brightness == Brightness.dark
                           ? const Color(0XFFFFFFFF)
                           : const Color(0XFF000000),

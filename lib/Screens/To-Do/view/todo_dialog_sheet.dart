@@ -54,7 +54,7 @@ class _NoteReaderState extends State<NoteReader> {
                   ],
                 ),
                 TextField(
-                  keyboardType: TextInputType.text,
+                  keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                     hintText: 'Write Title',
                     hintStyle: Theme.of(context).textTheme.labelMedium,

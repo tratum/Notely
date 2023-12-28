@@ -264,7 +264,7 @@ class _ToDoCardTileGridViewState extends State<ToDoCardTileGridView> {
                   maxLines: 1,
                 ),
                 const SizedBox(
-                  height: 12,
+                  height: 5,
                 ),
                 Text(
                   '${widget.cardText}',
@@ -282,7 +282,7 @@ class _ToDoCardTileGridViewState extends State<ToDoCardTileGridView> {
                     decorationColor: const Color(0xFFea5370),
                     overflow: TextOverflow.ellipsis,
                   ),
-                  maxLines: 1,
+                  maxLines: 2,
                 ),
               ],
             ),

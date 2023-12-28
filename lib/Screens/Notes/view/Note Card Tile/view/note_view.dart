@@ -102,7 +102,7 @@ class _NoteViewState extends State<NoteView> {
                   ),
                   TextFormField(
                       // controller: noteController,
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.multiline,
                       cursorColor: theme.brightness == Brightness.dark
                           ? const Color(0XFFFFFFFF)
                           : const Color(0XFF000000),
@@ -132,7 +132,7 @@ class _NoteViewState extends State<NoteView> {
                       )),
                   TextFormField(
                     // controller: descriptionController,
-                    keyboardType: TextInputType.text,
+                    keyboardType: TextInputType.multiline,
                     maxLines: 10,
                     cursorColor: theme.brightness == Brightness.dark
                         ? const Color(0XFFFFFFFF)

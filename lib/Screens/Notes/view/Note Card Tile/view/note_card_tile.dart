@@ -215,7 +215,7 @@ class _NoteCardTileState extends State<NoteCardTile> {
               Expanded(
                 child: widget.noteTitle!.isEmpty
                     ? SizedBox(
-                        height: 90,
+                        height: 110,
                         child: ScrollbarTheme(
                           data: ScrollbarThemeData(
                             thumbColor: MaterialStateProperty.all(
@@ -228,7 +228,7 @@ class _NoteCardTileState extends State<NoteCardTile> {
                             radius: const Radius.circular(8.0),
                             child: Padding(
                               padding: const EdgeInsets.only(
-                                  left: 16, right: 12, top: 12),
+                                  left: 16, right: 12, top: 22),
                               child: SingleChildScrollView(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -245,7 +245,7 @@ class _NoteCardTileState extends State<NoteCardTile> {
                                         fontSize: 16,
                                         // overflow: TextOverflow.ellipsis,
                                       ),
-                                      maxLines: 2,
+                                      maxLines: 3,
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                     widget.noteText!.length >= 15
@@ -296,7 +296,7 @@ class _NoteCardTileState extends State<NoteCardTile> {
                         ),
                       )
                     : SizedBox(
-                        height: 125,
+                        height: 150,
                         child: ScrollbarTheme(
                           data: ScrollbarThemeData(
                             thumbColor: MaterialStateProperty.all(
@@ -343,7 +343,7 @@ class _NoteCardTileState extends State<NoteCardTile> {
                                         fontSize: 16,
                                         overflow: TextOverflow.ellipsis,
                                       ),
-                                      maxLines: 2,
+                                      maxLines: 3,
                                     ),
                                     widget.noteText!.length >= 15
                                         ? const SizedBox(
