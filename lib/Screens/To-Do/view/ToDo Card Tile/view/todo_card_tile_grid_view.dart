@@ -56,8 +56,10 @@ class _ToDoCardTileGridViewState extends State<ToDoCardTileGridView> {
     return const Color(0xFFea5370);
   }
 
-  void _contextMenu(BuildContext context, Color backgroundColor,
-      Color iconColor, Color heartIcon) async {
+  void _contextMenu(
+      BuildContext context, Color backgroundColor,
+      Color iconColor, Color heartIcon
+      ) async {
     final RenderObject? overlay =
         Overlay.of(context).context.findRenderObject();
     final RenderBox cardBox = context.findRenderObject() as RenderBox;
@@ -183,27 +185,6 @@ class _ToDoCardTileGridViewState extends State<ToDoCardTileGridView> {
                   const SizedBox(
                     width: 20,
                   ),
-                  // Obx(
-                  //   () => GestureDetector(
-                  //     onTap: () {
-                  //       todoCardController.favourite_todo[widget.listIndex]
-                  //               ['favorite'] =
-                  //           !todoCardController.favourite_todo[widget.listIndex]
-                  //               ['favorite'];
-                  //     },
-                  //     child: Icon(
-                  //       todoCardController.favourite_todo[widget.listIndex]
-                  //               ['favorite']
-                  //           ? Icons.favorite
-                  //           : Icons.favorite_border,
-                  //       size: 28,
-                  //       color: todoCardController
-                  //               .favourite_todo[widget.listIndex]['favorite']
-                  //           ? const Color(0xFFea5370)
-                  //           : hearticon,
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ),

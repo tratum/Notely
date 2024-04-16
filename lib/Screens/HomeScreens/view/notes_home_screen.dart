@@ -457,7 +457,8 @@ class _NoteHomeScreenState extends State<NoteHomeScreen> {
                         },
                         itemCount: notes.length,
                       );
-                    }),
+                    }
+                    ),
               ),
             ],
           ),
