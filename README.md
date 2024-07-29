@@ -23,8 +23,8 @@ Notely is a cross-platform mobile application built using the Flutter framework 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/notely.git
-   cd notely
+   git clone -b dev https://github.com/yourusername/notely.git Notely
+   cd Notely
 
 2. **Install dependencies:**
 
