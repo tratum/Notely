@@ -1,5 +1,4 @@
-# Notely: Notes and To-Do App
-
+# Notely
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yourusername/notely/LICENSE)
 
 Notely is a cross-platform mobile application built using the Flutter framework and integrated with Firebase for backend support. It offers a seamless and intuitive interface for creating and managing notes and to-do lists.
