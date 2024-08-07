@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "668389272392",
+    "project_id": "notely-00",
+    "storage_bucket": "notely-00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668389272392:android:67262f1825fc50d8d6217d",
+        "android_client_info": {
+          "package_name": "com.tratum.notely"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8wjGRWellh8JSMyytYEc5mT8xN0AeRWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
