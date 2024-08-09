@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:notely/services/firestore.service.dart';
+import '../../services/firestore.service.dart';
 
 import '../../app/app.common.functions.dart';
 import '../../dialogs/dialog.schedule.reminder.dart';
@@ -96,7 +96,6 @@ class ToDoBottomsheet extends StatelessWidget {
                     ),
                     TextFormField(
                       autofocus: true,
-                      autovalidateMode: AutovalidateMode.disabled,
                       controller: titleController,
                       keyboardType: TextInputType.multiline,
                       cursorColor:
@@ -138,12 +137,6 @@ class ToDoBottomsheet extends StatelessWidget {
                         ),
                       ),
                       textAlign: TextAlign.start,
-                      validator: (value) {
-                        if (value == null || value == '') {
-                          return 'Enter Title';
-                        }
-                        return null;
-                      },
                     ),
                     const SizedBox(
                       height: 20,
@@ -209,14 +202,10 @@ class ToDoBottomsheet extends StatelessWidget {
                           onPressed: () async {
                             if (formValidator.currentState!.validate()) {
                               DatabaseHandler.syncUserTodos(
-                                      context,
-                                      titleController.text.toString().trim(),
-                                      descriptionController.text
-                                          .toString()
-                                          .trim(),
-                                      false)
-                                  .whenComplete(
-                                      () => Navigator.of(context).pop());
+                                context,
+                                titleController.text.toString().trim(),
+                                descriptionController.text.toString().trim(),
+                              ).whenComplete(() => Navigator.pop(context));
                             } else {}
                           },
                           style: ElevatedButton.styleFrom(
@@ -251,7 +240,7 @@ class ToDoBottomsheet extends StatelessWidget {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.of(context).pop();
+                            Navigator.pop(context);
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor:

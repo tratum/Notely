@@ -143,9 +143,8 @@ class _NoteViewState extends State<NoteView> {
                           return Column(
                             children: [
                               NoteCards(
-                                heading: notes[index].data()['context'] ?? '',
-                                description:
-                                    notes[index].data()['description'] ?? '',
+                                heading: notes[index].data()['context'],
+                                description: notes[index].data()['description'],
                                 backgroundColor: getTheme(context).brightness ==
                                         Brightness.dark
                                     ? const Color(0XFF5B5B5B)

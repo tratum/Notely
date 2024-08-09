@@ -14,19 +14,20 @@ class DatabaseHandler {
       "uid": uid,
       "secretKey": firebaseSecretKey,
     };
-    doc.collection("notes");
-    doc.collection("todos");
+    doc.collection("notes").add(mandatoryData);
+    doc.collection("todos").add(mandatoryData);
   }
 
-  static Future<void> syncUserTodos(BuildContext buildContext, String context,
-      String description, bool isFav) async {
+  static Future<void> syncUserTodos(
+      BuildContext buildContext, String context, String description) async {
     try {
       final data = <String, dynamic>{
         "uid": uid,
         "context": context,
         "description": description,
         "timestamp": Timestamp.now(),
-        "isBookmarked": isFav,
+        "isBookmarked": false,
+        "completionStatus": false,
         "secretKey": firebaseSecretKey,
       };
       DocumentReference ref =
@@ -70,6 +71,184 @@ class DatabaseHandler {
     } catch (e) {
       if (buildContext.mounted) {
         ScaffoldMessenger.of(buildContext).showSnackBar(
+          SnackBar(content: Text('An error occurred: $e')),
+        );
+      }
+    }
+  }
+
+  static Future<void> deleteUserTodos(
+      BuildContext buildContext, String docID) async {
+    try {
+      db.collection("users").doc(uid).collection("todos").doc(docID).delete();
+    } on FirebaseException catch (e) {
+      if (buildContext.mounted) {
+        ScaffoldMessenger.of(buildContext).showSnackBar(
+          SnackBar(content: Text('Failed to Delete Todo: ${e.message}')),
+        );
+      }
+    } catch (e) {
+      if (buildContext.mounted) {
+        ScaffoldMessenger.of(buildContext).showSnackBar(
+          SnackBar(content: Text('An error occurred: $e')),
+        );
+      }
+    }
+  }
+
+  static Future<void> deleteUserNotes(
+      BuildContext buildContext, String docID) async {
+    try {
+      db.collection("users").doc(uid).collection("notes").doc(docID).delete();
+    } on FirebaseException catch (e) {
+      if (buildContext.mounted) {
+        ScaffoldMessenger.of(buildContext).showSnackBar(
+          SnackBar(content: Text('Failed to Delete Note: ${e.message}')),
+        );
+      }
+    } catch (e) {
+      if (buildContext.mounted) {
+        ScaffoldMessenger.of(buildContext).showSnackBar(
+          SnackBar(content: Text('An error occurred: $e')),
+        );
+      }
+    }
+  }
+
+  static Future<void> updateUserNotes(BuildContext buildContext, String context,
+      String description, String docID) async {
+    try {
+      final data = <String, dynamic>{
+        "context": context,
+        "description": description,
+        "timestamp": Timestamp.now(),
+        "secretKey": firebaseSecretKey,
+      };
+      DocumentReference ref =
+          db.collection("users").doc(uid).collection("notes").doc(docID);
+      await ref.update(data);
+    } on FirebaseException catch (e) {
+      if (buildContext.mounted) {
+        ScaffoldMessenger.of(buildContext).showSnackBar(
+          SnackBar(content: Text('Failed to Update Notes: ${e.message}')),
+        );
+      }
+    } catch (e) {
+      if (buildContext.mounted) {
+        ScaffoldMessenger.of(buildContext).showSnackBar(
+          SnackBar(content: Text('An error occurred: $e')),
+        );
+      }
+    }
+  }
+
+  static Future<void> updateUserTodos(BuildContext buildContext, String context,
+      String description, String docID) async {
+    try {
+      final data = <String, dynamic>{
+        "context": context,
+        "description": description,
+        "timestamp": Timestamp.now(),
+        "secretKey": firebaseSecretKey,
+      };
+      DocumentReference ref =
+          db.collection("users").doc(uid).collection("todos").doc(docID);
+      await ref.update(data);
+    } on FirebaseException catch (e) {
+      if (buildContext.mounted) {
+        ScaffoldMessenger.of(buildContext).showSnackBar(
+          SnackBar(content: Text('Failed to Update Todo: ${e.message}')),
+        );
+      }
+    } catch (e) {
+      if (buildContext.mounted) {
+        ScaffoldMessenger.of(buildContext).showSnackBar(
+          SnackBar(content: Text('An error occurred: $e')),
+        );
+      }
+    }
+  }
+
+  static Future<void> bookmarkNotes(
+      BuildContext context, String docID, bool isBookmarked) async {
+    try {
+      final data = <String, dynamic>{
+        "isBookmarked": isBookmarked,
+        "secretKey": firebaseSecretKey,
+      };
+      db
+          .collection("users")
+          .doc(uid)
+          .collection("notes")
+          .doc(docID)
+          .update(data);
+    } on FirebaseException catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to Bookmark Note: ${e.message}')),
+        );
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('An error occurred: $e')),
+        );
+      }
+    }
+  }
+
+  static Future<void> bookmarkTodos(
+      BuildContext context, String docID, bool isBookmarked) async {
+    try {
+      final data = <String, dynamic>{
+        "isBookmarked": isBookmarked,
+        "secretKey": firebaseSecretKey,
+      };
+      db
+          .collection("users")
+          .doc(uid)
+          .collection("todos")
+          .doc(docID)
+          .update(data);
+    } on FirebaseException catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to Bookmark Todo: ${e.message}')),
+        );
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('An error occurred: $e')),
+        );
+      }
+    }
+  }
+
+  static Future<void> markToDoAsCompleted(
+      BuildContext context, String docID, bool completionStatus) async {
+    try {
+      final data = <String, dynamic>{
+        "completionStatus": completionStatus,
+        "secretKey": firebaseSecretKey,
+      };
+      db
+          .collection("users")
+          .doc(uid)
+          .collection("todos")
+          .doc(docID)
+          .update(data);
+    } on FirebaseException catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+              content: Text(
+                  'Failed to Update the Completion Status of the Todo: ${e.message}')),
+        );
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('An error occurred: $e')),
         );
       }

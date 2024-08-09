@@ -121,13 +121,13 @@ class _ToDoViewState extends State<ToDoView> {
                 child: StreamBuilder(
                     stream: DatabaseHandler.todoStream(),
                     builder: (context, snapshot) {
-                      final noteStream = snapshot.data?.docs ?? [];
+                      final todoStream = snapshot.data?.docs ?? [];
                       if (snapshot.hasError) {
                         errorSnackbar(context, '${snapshot.error}');
                         throw Exception(
                             '-----------------Error: ${snapshot.error}');
                       }
-                      if (noteStream.isEmpty) {
+                      if (todoStream.isEmpty) {
                         return Container(
                           width: 580,
                           padding: const EdgeInsets.only(top: 60),
@@ -161,24 +161,26 @@ class _ToDoViewState extends State<ToDoView> {
                           ],
                         ),
                         scrollDirection: Axis.vertical,
-                        semanticChildCount: noteStream.length,
+                        semanticChildCount: todoStream.length,
                         shrinkWrap: true,
                         childrenDelegate: SliverChildBuilderDelegate(
                           (context, index) {
-                            homeConn.todoLength.value = noteStream.length;
+                            homeConn.todoLength.value = todoStream.length;
                             return ToDoCards(
-                              heading:
-                                  noteStream[index].data()['context'] ?? '',
+                              docID: todoStream[index].data()['docID'],
+                              heading: todoStream[index].data()['context'],
+                              maxLines: largeTileIdentifier(index) ? 7 : 1,
                               description:
-                                  noteStream[index].data()['description'] ?? '',
+                                  todoStream[index].data()['description'],
                               backgroundColor:
                                   cardColors[index % cardColors.length],
-                              docID: noteStream[index].data()['docID'] ?? '',
-                              isBookmarked: false,
-                              maxLines: largeTileIdentifier(index) ? 7 : 1,
+                              isBookmarked:
+                                  todoStream[index].data()['isBookmarked'],
+                              completionStatus:
+                                  todoStream[index].data()['completionStatus'],
                             );
                           },
-                          childCount: noteStream.length,
+                          childCount: todoStream.length,
                         ),
                       );
                     }),

@@ -46,7 +46,7 @@ class NoteBottomsheet extends StatelessWidget {
                             titleController.text.toString().trim(),
                             descriptionController.text.toString().trim(),
                             false,
-                          ).whenComplete(() => Navigator.of(context).pop());
+                          ).whenComplete(() => Navigator.pop(context));
                         } else {}
                       },
                       child: Icon(
